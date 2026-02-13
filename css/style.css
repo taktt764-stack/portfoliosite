@@ -1,0 +1,1041 @@
+/* =========================================================
+   Base / Variables（重複統合）
+========================================================= */
+
+/* 変数は :root に集約（header + work） */
+:root {
+    /* Header */
+    --header-h: 64px;
+
+    /* Work / 共通レイアウト */
+    --work-container: 1280px;
+    --work-pad-x: 24px;
+
+    --work-bg-card: #eef1ff;
+    --work-bg-thumb: #ffffff;
+
+    --work-text-muted: #5a5a5a;
+    --work-text: #2b2b2b;
+    --work-text-sub: #4a4a4a;
+
+    --work-radius-card: 28px;
+    --work-radius-thumb: 18px;
+
+    --work-gap-row: 40px;
+    --work-gap-col: 56px;
+}
+
+/* #work などのアンカーが固定ヘッダーに隠れないように */
+html {
+    scroll-padding-top: var(--header-h);
+}
+
+/* body の重複を統合 */
+body {
+    font-family: "Libre Caslon Text", "Noto Serif JP", "Noto Sans JP", serif, sans-serif;
+    padding-top: var(--header-h);
+}
+
+/* =========================================================
+   Header（重複統合）
+========================================================= */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    background: #fff;
+    font-family: "Noto Sans JP", sans-serif;
+    color: #565656;
+}
+
+/* header-container の重複を統合（paddingは後勝ちの 16px 32px を採用） */
+.header-container {
+    height: var(--header-h);
+    box-sizing: border-box;
+
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 16px 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    display: block;
+    width: 220px;
+    height: auto;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 56px;
+}
+
+.nav__item a {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    padding: 8px 0;
+}
+
+.sns {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sns__link {
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    color: #111;
+}
+
+.sns__link--blue {
+    background: #e9efff;
+}
+
+.sns__link--round {
+    width: 46px;
+    height: 46px;
+    border-radius: 9999px;
+}
+
+.sns__link i {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* ハンバーガー（PCは非表示） */
+.hamburger {
+    display: none;
+}
+
+/* =========================================================
+   Hero
+========================================================= */
+
+.hero {
+    width: 100%;
+}
+
+.hero-container {
+    height: calc(100vh - var(--header-h));
+    box-sizing: border-box;
+
+    /* 追加：最初は100% */
+    --gray: 100%;
+
+    /* background-image は疑似要素へ移すので削除/無効化 */
+    /* background-image: url("img/hero.jpg"); */
+    background: transparent;
+
+    position: relative;
+    padding: 0 32px;
+    overflow: hidden;
+    /* 重要：疑似要素がはみ出さないように */
+}
+
+/* 背景画像を描画するレイヤー */
+.hero-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("../img/hero.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    /* 最初はモノトーン */
+    filter: grayscale(var(--gray));
+    will-change: filter;
+
+    z-index: 0;
+}
+
+/* タイトルは前面に */
+.hero__title {
+    margin: 0;
+    text-align: center;
+    font-family: "Noto Serif JP";
+    color: #fff;
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 500;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+
+    z-index: 1;
+}
+
+/* =========================================================
+   Work（制作実績）
+========================================================= */
+
+.work {
+    padding: 72px 0 96px;
+}
+
+/* まとめられる共通（box-sizing） */
+.work,
+.work__inner,
+.work-card {
+    box-sizing: border-box;
+}
+
+.work__inner {
+    width: min(var(--work-container), 100%);
+    margin: 0 auto;
+    padding: 0 var(--work-pad-x);
+}
+
+.work__header {
+    margin: 0 0 32px;
+}
+
+.work__title {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.work__title-ja,
+.work__title-en {
+    display: block;
+    font-weight: 400;
+}
+
+.work__title-ja {
+    font-size: 24px;
+    color: var(--work-text-muted);
+    letter-spacing: 0.06em;
+}
+
+.work__title-en {
+    margin-top: 8px;
+    font-size: 16px;
+    color: var(--work-text);
+    letter-spacing: 0.02em;
+}
+
+/* Grid */
+.work__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--work-gap-row) var(--work-gap-col);
+}
+
+/* Card */
+.work-card {
+    text-decoration: none;
+    color: inherit;
+
+    background: var(--work-bg-card);
+    border-radius: var(--work-radius-card);
+    padding: 22px;
+    min-height: 270px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 画像エリア */
+.work-card__thumb {
+    width: 100%;
+    border-radius: var(--work-radius-thumb);
+    overflow: hidden;
+    background: var(--work-bg-thumb);
+    aspect-ratio: 16 / 9;
+}
+
+/* 画像 */
+.work-card__thumb img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* 画像無し（WP STUDIO / COMING SOON） */
+.work-card__thumb--empty {
+    background: transparent;
+    display: grid;
+    place-items: center;
+}
+
+/* テキスト */
+.work-card__name {
+    margin: 18px 0 0;
+    text-align: center;
+    font-size: 14px;
+    font-family: "Noto Sans JP";
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--work-text);
+}
+
+.work-card__empty-text,
+.work-card__soon-text {
+    font-size: 13px;
+    font-family: "Noto Sans JP";
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--work-text-sub);
+    opacity: 0.8;
+}
+
+/* 準備中：クリック無効 */
+.work-card--soon {
+    cursor: default;
+    pointer-events: none;
+}
+
+/* =========================================================
+   Review（お客様の声）
+========================================================= */
+
+.review {
+    padding: 0 0 96px;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+.review__inner {
+    width: min(var(--work-container), 100%);
+    margin: 0 auto;
+    padding: 0 var(--work-pad-x);
+    box-sizing: border-box;
+}
+
+.review__header {
+    margin: 0 0 32px;
+}
+
+.review__title {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.review__title-ja {
+    display: block;
+    font-size: 24px;
+    font-weight: 400;
+    color: #5a5a5a;
+    letter-spacing: 0.06em;
+    font-family: "Noto Serif JP", serif;
+}
+
+.review__title-en {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #2b2b2b;
+    letter-spacing: 0.02em;
+    font-family: "Libre Caslon Text", serif;
+}
+
+/* Grid：Workと同じ */
+.review__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--work-gap-row, 40px) var(--work-gap-col, 56px);
+}
+
+.review__item {
+    margin: 0;
+}
+
+/* Card：Workと同じサイズ */
+.review-card {
+    background: var(--work-bg-card, #eef1ff);
+    border-radius: var(--work-radius-card, 28px);
+    padding: 22px;
+    min-height: 270px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+/* 中身（COMING SOONの箱） */
+.review-card__box {
+    flex: 1;
+    display: grid;
+    place-items: center;
+}
+
+/* COMKING SOON */
+.review-card__soon {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #4a4a4a;
+    opacity: 0.8;
+}
+
+/* 準備中（操作不可） */
+.review-card--soon {
+    cursor: default;
+    pointer-events: none;
+}
+
+/* =========================================================
+   About / Vision
+========================================================= */
+
+.about {
+    padding: 72px 0 96px;
+    background: #e8ecff;
+    font-family: "Noto Serif JP", serif;
+}
+
+.about__inner {
+    width: min(var(--work-container, 1280px), 100%);
+    margin: 0 auto;
+    padding: 0 var(--work-pad-x, 24px);
+    box-sizing: border-box;
+}
+
+.about__header {
+    margin: 0 0 40px;
+}
+
+.about__title {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.about__title-ja {
+    display: block;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: #2b2b2b;
+}
+
+.about__title-en {
+    display: block;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #2b2b2b;
+}
+
+.about__content {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    column-gap: 32px;
+}
+
+.about__text {
+    max-width: 800px;
+}
+
+.about__lead,
+.about__desc {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2.2;
+    letter-spacing: 0.01em;
+    color: #2b2b2b;
+}
+
+/* 行間の余白（カンプの“段落が離れている”感じ） */
+.about__lead {
+    margin-bottom: 44px;
+}
+
+.about__desc+.about__desc {
+    margin-top: 44px;
+}
+
+.about__desc--strong {
+    margin-top: 56px;
+}
+
+.about__media {
+    margin: 0;
+}
+
+.about__img {
+    width: 70%;
+    max-width: 560px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    border-radius: 0;
+    filter: grayscale(30%) brightness(0.9) contrast(0.95);
+}
+
+.about__brand {
+    margin-top: 56px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about__brand-logo {
+    width: clamp(180px, 28vw, 240px);
+    height: auto;
+    display: block;
+}
+
+/* =========================================================
+   Menu（メニュー）
+========================================================= */
+
+.menu {
+    padding: 72px 0 96px;
+    background: #fff;
+    color: #2b2b2b;
+    font-family: "Noto Sans JP", sans-serif;
+    box-sizing: border-box;
+}
+
+.menu__inner {
+    width: min(var(--work-container, 1280px), 100%);
+    margin: 0 auto;
+    padding: 0 var(--work-pad-x, 24px);
+    box-sizing: border-box;
+}
+
+.menu__header {
+    margin: 0 0 64px;
+}
+
+.menu__title {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.menu__title-ja {
+    display: block;
+    font-family: "Noto Serif JP", serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+.menu__title-en {
+    display: block;
+    margin-top: 8px;
+    font-family: "Noto Serif JP", serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+/* 4カラム配置（元画像のように横に広げる） */
+.menu__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 80px;
+    row-gap: 56px;
+}
+
+/* 各カラム：行を縦に積む（←これが無いと横に流れてしまう） */
+.menu__col {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    min-width: 0;
+}
+
+/* 1行：項目と価格の間隔を「全角1文字分」くらいに固定 */
+.menu__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1em;
+}
+
+.menu__label,
+.menu__price,
+.menu__stack-item,
+.menu__note {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.menu__label,
+.menu__price {
+    white-space: nowrap;
+}
+
+.menu__stack {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.menu__price {
+    text-align: left;
+}
+
+.menu__note {
+    margin-top: 96px;
+    color: #4a4a4a;
+}
+
+/* =========================================================
+   Footer
+========================================================= */
+
+.footer {
+    padding: 64px 0 72px;
+    background: #ffffff;
+    color: #2b2b2b;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 16px;
+}
+
+.footer-container {
+    width: min(var(--work-container, 1280px), 100%);
+    margin: 0 auto;
+    padding: 0 var(--work-pad-x, 24px);
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.footer-nav .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 56px;
+}
+
+.footer-nav .nav__item a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+}
+
+.footer-sns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.footer-sns .sns__link--round {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #e8ecff;
+    color: #111;
+    text-decoration: none;
+}
+
+.footer-sns .sns__link--round i {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.footer__logo-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.footer__logo {
+    width: clamp(220px, 22vw, 320px);
+    height: auto;
+    display: block;
+}
+
+.pc-none {
+    display: none;
+}
+
+/* =========================================================
+   Mobile（767px以下）
+========================================================= */
+
+@media (max-width: 767px) {
+    .pc-none {
+        display: block;
+    }
+
+    /* ここは「レスポンシブ用の上書き」なので :root 再定義のままでOK */
+    :root {
+        --header-h: 72px;
+
+        --work-pad-x: 16px;
+        --work-gap-row: 24px;
+        --work-gap-col: 24px;
+        --work-radius-card: 20px;
+        --work-radius-thumb: 16px;
+    }
+
+    /* ---------- Header (開閉メニュー) ---------- */
+    .header-container {
+        padding: 0 16px;
+        gap: 12px;
+        height: var(--header-h);
+    }
+
+    .header__logo {
+        width: 160px;
+    }
+
+    /* SNSは通常は隠す（メニューOPEN時だけ表示） */
+    .header .sns {
+        display: none;
+    }
+
+    /* ハンバーガー */
+    .hamburger {
+        display: block;
+        width: 44px;
+        height: 44px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .hamburger__border {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        height: 2px;
+        background: #333;
+        border-radius: 9999px;
+        transition: transform 0.25s ease, top 0.25s ease, opacity 0.25s ease;
+    }
+
+    .hamburger__border:nth-child(1) {
+        top: 16px;
+    }
+
+    .hamburger__border:nth-child(2) {
+        top: 26px;
+    }
+
+    /* 開いたとき：× */
+    .hamburger.is-open .hamburger__border:nth-child(1) {
+        top: 21px;
+        transform: rotate(45deg);
+    }
+
+    .hamburger.is-open .hamburger__border:nth-child(2) {
+        top: 21px;
+        transform: rotate(-45deg);
+    }
+
+    /* メニュー本体（右からスライド） */
+    .header .nav {
+        display: block;
+        /* ←開閉式なので常に存在させる */
+        position: fixed;
+        top: var(--header-h);
+        /* ←ヘッダー下から開始 */
+        right: 0;
+        height: calc(100svh - var(--header-h));
+        /* ←ヘッダー分を引く */
+        width: min(82vw, 320px);
+        background: #fff;
+        padding: 24px;
+        /* ←通常の内側余白 */
+        box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+        transform: translateX(110%);
+        transition: transform 0.25s ease;
+        z-index: 950;
+        overflow-y: auto;
+        /* 万一高さが足りない時にスクロールできるように */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .header .nav.is-open {
+        transform: translateX(0);
+    }
+
+    .header .nav .nav-list {
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+    }
+
+    .header .nav .nav__item a {
+        font-size: 18px;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    /* ✅ メニューが開いた時だけ、SNSを「ナビメニューの直下」に横並び表示 */
+    .header .nav.is-open+.sns {
+        display: flex;
+        position: fixed;
+        right: 0;
+
+        /* ▼ナビ4項目(現在の構成)の直下に来る位置
+       必要ならこの 264px だけ微調整してください */
+        top: calc(var(--header-h) + 264px);
+
+        width: min(82vw, 320px);
+        padding: 0 24px;
+        /* ←navのpaddingと揃える */
+        justify-content: flex-start;
+        align-items: center;
+        gap: 14px;
+        z-index: 960;
+        /* ←navより前 */
+    }
+
+    /* 背景の暗幕（ヘッダー下から） */
+    .menu-overlay {
+        position: fixed;
+        top: var(--header-h);
+        /* ←ヘッダー下から */
+        left: 0;
+        right: 0;
+        height: calc(100svh - var(--header-h));
+        /* ←ヘッダー分を引く */
+        background: rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        z-index: 900;
+    }
+
+    .menu-overlay.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* メニュー表示中はスクロール停止 */
+    body.is-menu-open {
+        overflow: hidden;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero-container {
+        height: calc(100svh - var(--header-h));
+        /* アドレスバー対策 */
+        padding: 0 16px;
+    }
+
+    .hero__title {
+        font-size: clamp(18px, 5vw, 28px);
+        line-height: 1.9;
+        top: 55%;
+    }
+
+    /* ---------- Work / Review ---------- */
+    .work {
+        padding: 56px 0 72px;
+    }
+
+    .work__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .work-card {
+        min-height: auto;
+        padding: 18px;
+    }
+
+    /* Work：aria-label="準備中" のカードだけ高さを最小にする */
+    .work-card[aria-label="準備中"] .work-card__thumb {
+        aspect-ratio: auto;
+        /* 16/9 を解除して高さを取らない */
+    }
+
+    .work-card[aria-label="準備中"] .work-card__thumb--empty {
+        padding: 22px 0;
+        /* 表示は残しつつ、必要最小の高さに */
+    }
+
+    .review {
+        padding: 0 0 72px;
+    }
+
+    .review__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card {
+        min-height: auto;
+        padding: 18px;
+    }
+
+    /* ---------- About ---------- */
+    .about {
+        padding: 56px 0 72px;
+    }
+
+    .about__content {
+        grid-template-columns: 1fr;
+        row-gap: 24px;
+    }
+
+    .about__lead,
+    .about__desc {
+        font-size: 16px;
+        line-height: 2;
+    }
+
+    .about__lead {
+        margin-bottom: 24px;
+    }
+
+    .about__desc+.about__desc {
+        margin-top: 24px;
+    }
+
+    .about__desc--strong {
+        margin-top: 32px;
+    }
+
+    .about__img {
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
+    }
+
+    .about__brand {
+        margin-top: 32px;
+        justify-content: center;
+    }
+
+    /* ---------- Menu ---------- */
+    .menu {
+        padding: 56px 0 72px;
+    }
+
+    .menu__header {
+        margin: 0 0 40px;
+    }
+
+    .menu__grid {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 32px;
+    }
+
+    .menu__col {
+        gap: 24px;
+    }
+
+    .menu__row {
+        flex-wrap: wrap;
+        gap: 0.8em;
+    }
+
+    .menu__label,
+    .menu__price,
+    .menu__stack-item,
+    .menu__note {
+        font-size: 14px;
+    }
+
+    .menu__note {
+        margin-top: 48px;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+        padding: 48px 0 56px;
+        font-size: 14px;
+    }
+
+    .footer-container {
+        gap: 24px;
+    }
+
+    .footer-nav .nav-list {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .footer-sns .sns__link--round {
+        width: 46px;
+        height: 46px;
+    }
+
+    .footer-sns .sns__link--round i {
+        font-size: 20px;
+    }
+
+    .footer__logo {
+        width: 220px;
+    }
+}
+
+/* =========================================================
+   Hover（Work / Review）
+========================================================= */
+
+/* ※ホバーできる端末（主にPC）だけで発火。モバイル幅に依存しないよう外に出す */
+@media (hover: hover) and (pointer: fine) {
+
+    .work-card,
+    .review-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        will-change: transform;
+    }
+
+    .work-card:hover,
+    .review-card:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .work-card__thumb img {
+        transition: transform 0.25s ease;
+        will-change: transform;
+    }
+
+    .work-card:hover .work-card__thumb img {
+        transform: scale(1.04);
+    }
+}
