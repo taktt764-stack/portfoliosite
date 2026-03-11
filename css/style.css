@@ -145,23 +145,11 @@ body {
 }
 
 .hero-container {
-    height: calc(100vh - var(--header-h));
-    box-sizing: border-box;
-
-    /* 追加：最初は100% */
-    --gray: 100%;
-
-    /* background-image は疑似要素へ移すので削除/無効化 */
-    /* background-image: url("img/hero.jpg"); */
-    background: transparent;
-
     position: relative;
-    padding: 0 32px;
+    --gray: 100%;
     overflow: hidden;
-    /* 重要：疑似要素がはみ出さないように */
 }
 
-/* 背景画像を描画するレイヤー */
 .hero-container::before {
     content: "";
     position: absolute;
@@ -172,11 +160,15 @@ body {
     background-position: center;
     background-size: cover;
 
-    /* 最初はモノトーン */
     filter: grayscale(var(--gray));
     will-change: filter;
 
     z-index: 0;
+}
+
+.hero__title {
+    position: relative;
+    z-index: 1;
 }
 
 /* タイトルは前面に */
@@ -1038,4 +1030,5 @@ body {
     .work-card:hover .work-card__thumb img {
         transform: scale(1.04);
     }
+
 }
