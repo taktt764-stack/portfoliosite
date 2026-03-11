@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>でざいんかける</title>
+    <meta name="description" content="Webサイトのデザインから運用、集客戦略のデザインまで私たちはクライアントと一緒にゴールまで歩みます。お客様へ届けたい想いをしっかり形にデザインします。">
+    <!-- リセットCSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.1/destyle.css">
+    <!-- Googleフォント CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- style.css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- OGP -->
+    <meta property="og:title" content="でざいんかける公式サイト">
+    <meta property="og:description" content="Webサイトデザインから集客戦略までを手掛けるでざいんかけるのホームページ">
+    <meta property="og:url" content="WEBページのURL">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="WEBページのURL/img/ogp_portfolio.jpg">
+
+    <!-- Twitter:OGP -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@アカウント名">
+
+    <!-- 検索の非表示 -->
+    <meta name="robots" content="noindex">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <!-- トップへ戻る（#top が無ければ href="#" でもOK） -->
+            <a href="#top">
+                <img src="img/logo_designkakeru.png" alt="でざいんかける ロゴ" class="header__logo" />
+            </a>
+
+            <nav class="nav" aria-label="グローバルナビゲーション">
+                <ul class="nav-list">
+                    <!-- 各セクションのidに合わせてリンク先を変更 -->
+                    <li class="nav__item"><a href="#work">制作実績</a></li>
+                    <li class="nav__item"><a href="#review">お客様の声</a></li>
+                    <li class="nav__item"><a href="#about">私たちの想い</a></li>
+                    <li class="nav__item"><a href="#menu">メニュー</a></li>
+                </ul>
+            </nav>
+
+            <div class="sns">
+                <!-- 実URLに差し替えてください -->
+                <a href="https://x.com/" class="sns__link sns__link--blue sns__link--round" aria-label="X"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLBNoNjr8hp5rPPd_Z20GNzQz9GtP_45IXDqPJkvALUeR7Og/viewform?usp=header"
+                    class="sns__link sns__link--blue sns__link--round" aria-label="お問合せフォーム" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+
+            <!-- ハンバーガーメニュー -->
+            <div id="hamburger" class="hamburger" aria-label="メニューを開く" aria-controls="global-menu"
+                aria-expanded="false">
+                <div class="hamburger__border"></div>
+                <div class="hamburger__border"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- #top が無い場合は、body直下などにこれを置く -->
+    <!-- <div id="top"></div> -->
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <h1 class="hero__title">お客様へお届けしたい想いを<br class="pc-none">一緒にデザインします<br>明日への一歩をご一緒に</h1>
+            </div>
+        </section>
+
+        <!-- Work -->
+        <section class="work" id="work">
+            <div class="work__inner">
+                <header class="work__header">
+                    <h2 class="work__title">
+                        <span class="work__title-ja">制作実績</span>
+                        <span class="work__title-en">Work</span>
+                    </h2>
+                </header>
+
+                <ul class="work__grid">
+                    <!-- 1 -->
+                    <li class="work__item">
+                        <!-- ▼ここに遷移先URLを入れる -->
+                        <a class="work-card" href="https://taktt764-stack.github.io/woodenstudio2026/" target="_blank"
+                            rel="noopener noreferrer" aria-label="WOODEN STUDIOのWebサイトへ">
+                            <div class="work-card__thumb">
+                                <img src="img/ogp_woodenstudio.jpg" alt="WOODEN STUDIO" />
+                            </div>
+                            <p class="work-card__name">WOODEN STUDIO</p>
+                        </a>
+                    </li>
+
+                    <!-- 2 -->
+                    <li class="work__item">
+                        <!-- ▼ここに遷移先URLを入れる -->
+                        <a class="work-card" href="https://example.com/suna-shop/" target="_blank"
+                            rel="noopener noreferrer" aria-label="SUNA SHOPのWebサイトへ">
+                            <div class="work-card__thumb">
+                                <img src="img/ogp_SUNASHOP.jpg" alt="SUNA SHOP" />
+                            </div>
+                            <p class="work-card__name">SUNA SHOP</p>
+                        </a>
+                    </li>
+
+                    <!-- 3 (no image) -->
+                    <li class="work__item">
+                        <!-- ▼ここに遷移先URLを入れる -->
+                        <a class="work-card" href="https://example.com/wp-studio/" target="_blank"
+                            rel="noopener noreferrer" aria-label="WP STUDIOのWebサイトへ">
+                            <div class="work-card__thumb work-card__thumb--empty">
+                                <span class="work-card__empty-text">WP STUDIO</span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <!-- 4 (coming soon) -->
+                    <li class="work__item">
+                        <!-- 遷移させないのでaではなくdivのまま -->
+                        <div class="work-card work-card--soon" aria-label="準備中">
+                            <div class="work-card__thumb work-card__thumb--empty">
+                                <span class="work-card__soon-text">COMING SOON</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 5 (coming soon) -->
+                    <li class="work__item">
+                        <div class="work-card work-card--soon" aria-label="準備中">
+                            <div class="work-card__thumb work-card__thumb--empty">
+                                <span class="work-card__soon-text">COMING SOON</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 6 (coming soon) -->
+                    <li class="work__item">
+                        <div class="work-card work-card--soon" aria-label="準備中">
+                            <div class="work-card__thumb work-card__thumb--empty">
+                                <span class="work-card__soon-text">COMING SOON</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Review -->
+        <section class="review" id="review">
+            <div class="review__inner">
+                <header class="review__header">
+                    <h2 class="review__title">
+                        <span class="review__title-ja">お客様の声</span>
+                        <span class="review__title-en">Review</span>
+                    </h2>
+                </header>
+
+                <ul class="review__grid">
+                    <!-- 1 -->
+                    <li class="review__item">
+                        <article class="review-card review-card--soon">
+                            <div class="review-card__box" aria-label="準備中">
+                                <p class="review-card__soon">COMKING SOON</p>
+                            </div>
+                        </article>
+                    </li>
+
+                    <!-- 2 -->
+                    <li class="review__item">
+                        <article class="review-card review-card--soon">
+                            <div class="review-card__box" aria-label="準備中">
+                                <p class="review-card__soon">COMKING SOON</p>
+                            </div>
+                        </article>
+                    </li>
+
+                    <!-- 3 -->
+                    <li class="review__item">
+                        <article class="review-card review-card--soon">
+                            <div class="review-card__box" aria-label="準備中">
+                                <p class="review-card__soon">COMKING SOON</p>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- About / Vision -->
+        <section class="about" id="about">
+            <div class="about__inner">
+                <header class="about__header">
+                    <h2 class="about__title">
+                        <span class="about__title-ja">私たちの想い</span>
+                        <span class="about__title-en">Vision</span>
+                    </h2>
+                </header>
+
+                <div class="about__content">
+                    <!-- text -->
+                    <div class="about__text">
+                        <p class="about__lead">Webサイトのデザインから運用、集客戦略のデザインまで</p>
+
+                        <p class="about__desc">
+                            私たちはクライアントのみなさまと一緒にゴール目指して駆け抜けます。
+                        </p>
+
+                        <p class="about__desc">
+                            クライアントのみなさまが届けたい想いをお客様へお届けできるように
+                        </p>
+
+                        <p class="about__desc about__desc--strong">
+                            私たちは「想い」をデザインします。
+                        </p>
+                    </div>
+
+                    <!-- image -->
+                    <figure class="about__media">
+                        <img class="about__img" src="img/about_plane.jpg" alt="机の上の紙飛行機。窓から差す光で影ができている" />
+                    </figure>
+                </div>
+
+                <!-- bottom logo -->
+                <div class="about__brand">
+                    <img class="about__brand-logo" src="img/logo_designkakeru.png" alt="でざいんかける" />
+                </div>
+            </div>
+        </section>
+        <!-- Menu -->
+        <section class="menu" id="menu">
+            <div class="menu__inner">
+                <header class="menu__header">
+                    <h2 class="menu__title">
+                        <span class="menu__title-ja">メニュー</span>
+                        <span class="menu__title-en">Menu</span>
+                    </h2>
+                </header>
+
+                <div class="menu__grid">
+                    <!-- left -->
+                    <div class="menu__col">
+                        <div class="menu__row">
+                            <p class="menu__label">ご相談</p>
+                            <p class="menu__price">無料</p>
+                        </div>
+                        <div class="menu__row">
+                            <p class="menu__label">お打合せ</p>
+                            <p class="menu__price">無料</p>
+                        </div>
+                    </div>
+
+                    <!-- center-left -->
+                    <div class="menu__col">
+                        <div class="menu__row">
+                            <p class="menu__label">Webサイト制作</p>
+                            <p class="menu__price">応談</p>
+                        </div>
+                        <div class="menu__row">
+                            <p class="menu__label">保守運用</p>
+                            <p class="menu__price">応談</p>
+                        </div>
+                    </div>
+
+                    <!-- center-right -->
+                    <div class="menu__col">
+                        <div class="menu__row">
+                            <p class="menu__label">SNS運用</p>
+                            <div class="menu__stack">
+                                <p class="menu__stack-item">instagram</p>
+                                <p class="menu__stack-item">X</p>
+                                <p class="menu__stack-item">Tiktok</p>
+                                <p class="menu__stack-item">その他</p>
+                            </div>
+                            <p class="menu__price">応談</p>
+                        </div>
+                    </div>
+
+                    <!-- right -->
+                    <div class="menu__col">
+                        <div class="menu__row">
+                            <p class="menu__label">データ分析</p>
+                            <p class="menu__price">応談</p>
+                        </div>
+                        <div class="menu__row">
+                            <p class="menu__label">運用支援</p>
+                            <p class="menu__price">応談</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="menu__note">★掲載しているメニュー以外の対応は✉からお問い合わせください。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <nav class="nav footer-nav" aria-label="フッターナビゲーション">
+                <ul class="nav-list">
+                    <li class="nav__item"><a href="#work">制作実績</a></li>
+                    <li class="nav__item"><a href="#review">お客様の声</a></li>
+                    <li class="nav__item"><a href="#about">私たちの想い</a></li>
+                    <li class="nav__item"><a href="#menu">メニュー</a></li>
+                </ul>
+            </nav>
+
+            <div class="sns footer-sns">
+                <a href="https://x.com/" class="sns__link sns__link--blue sns__link--round" aria-label="X"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLBNoNjr8hp5rPPd_Z20GNzQz9GtP_45IXDqPJkvALUeR7Og/viewform?usp=header"
+                    class="sns__link sns__link--blue sns__link--round" aria-label="お問合せフォーム" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+
+            <a href="#top" class="footer__logo-link" aria-label="トップへ戻る">
+                <img src="img/logo_designkakeru.png" alt="でざいんかける ロゴ" class="footer__logo" />
+            </a>
+
+            <!-- ✅ ここに移動（footer-containerの中） -->
+            <small class="copyright">©︎ でざいんかける</small>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+
+    <script src="./js/anim.js"></script>
+    <script src="./js/menu.js"></script>
+
+
+</body>
+
+</html>
